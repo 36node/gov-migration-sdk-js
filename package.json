@@ -1,7 +1,7 @@
 {
   "name": "@36node/gov-migration-sdk-js",
   "version": "0.0.0",
-  "description": "A SDK boilerplate.",
+  "description": "Government migration api sdk.",
   "repository": {
     "url": "36node/gov-migration-sdk-js",
     "type": "git"
