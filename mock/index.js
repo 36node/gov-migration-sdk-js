@@ -1,4 +1,4 @@
-const generate = require("./pet");
+const generate = require("./application");
 const _ = require("lodash");
 
 const myRouter = (req, res, next) => {
@@ -22,7 +22,7 @@ const mock = ({ count = 100 }) => ({
    * mock data
    */
   db: {
-    pets: generate(count),
+    applications: generate(count),
   },
 
   /**
@@ -31,13 +31,6 @@ const mock = ({ count = 100 }) => ({
   rewrites,
 
   routers: [myRouter],
-
-  aggregations: {
-    "/pets": {
-      grade: "avg",
-      count: records => records.length,
-    },
-  },
 });
 
 module.exports = mock;

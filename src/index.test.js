@@ -2,36 +2,38 @@ import SDK from "./index";
 
 const sdk = new SDK({ base: "http://localhost:3000" });
 
-describe("## SDK vehicle", () => {
-  it("should list pets", async () => {
-    const result = await sdk.pet.listPets();
+describe("## SDK migration", () => {
+  it("should list applications", async () => {
+    const result = await sdk.application.listApplications();
     expect(result.body.length).toBe(100);
   });
 
-  let pet;
+  let application;
 
-  it("should create pet", async () => {
-    const newPet = {
+  it("should create application", async () => {
+    const newApplication = {
       name: "jam",
-      tag: "DOG",
-      owner: "lily",
+      phone: "13810437619",
+      identity: "330225198009121387",
     };
 
-    const result = await sdk.pet.createPet({ body: newPet });
-    pet = result.body;
-    expect(pet).toMatchObject(newPet);
-  });
-
-  it("should get pet", async () => {
-    const result = await sdk.pet.showPetById({
-      petId: pet.id,
+    const result = await sdk.application.createApplication({
+      body: newApplication,
     });
-    expect(result.body.id).toBe(pet.id);
+    application = result.body;
+    expect(application).toMatchObject(newApplication);
   });
 
-  it("should delete pet", async () => {
-    const result = await sdk.pet.deletePet({
-      petId: pet.id,
+  it("should get application", async () => {
+    const result = await sdk.application.showApplicationById({
+      applicationId: application.id,
+    });
+    expect(result.body.id).toBe(application.id);
+  });
+
+  it("should delete application", async () => {
+    const result = await sdk.application.deleteApplication({
+      applicationId: application.id,
     });
     expect(result.body).toEqual({});
   });
