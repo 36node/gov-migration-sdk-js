@@ -1,5 +1,4 @@
 const generate = require("./application");
-const _ = require("lodash");
 
 const myRouter = (req, res, next) => {
   /** example */
