@@ -101,15 +101,17 @@ declare namespace SDK {
     identity: string;
     phone: string;
     plate: string;
-    from: string;
+    from: [string];
     sick: boolean;
     reason: string;
     address: string;
-    history: string;
+    history: [string];
+    historyExtra: string;
     children: [
       {
         name: string;
         relation: string;
+        sick: boolean;
         age: number;
       }
     ];
@@ -118,6 +120,7 @@ declare namespace SDK {
   type ApplicationChild = {
     name: string;
     relation: string;
+    sick: boolean;
     age: number;
   };
   type Err = {
